@@ -2,13 +2,19 @@ package dungeon.model;
 
 public interface Combat 
 {	
-	public default boolean monsterHitChance()
-	{
-		return false
-	}
+	public boolean monsterHitChance();
 	
-	public static void monsterAttack()
-	{
-		
-	}
+	public void monsterAttack();
+	
+	public  boolean playerHitChance();
+	
+	public void playerAttack();
+	
+	public void monsterDeath();
+	
+	public void playerDeath();
+	
+	public void run();
+	
+	
 }

@@ -1,10 +1,10 @@
 package dungeon.model;
 
-public abstract class Monster implements Combat
+public abstract class Monster 
 {
-	public int monsterHealth = 3;
-	public int monsterStrength = 1;
-	public int dropChance = 25;
-	public int monsterHitChance = 80;
-	
+	public int monsterHealth;
+	public int monsterCurrentHealth;
+	public int monsterStrength;
+	public int dropChance;	
+	public String monsterType;
 }

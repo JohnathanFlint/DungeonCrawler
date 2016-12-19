@@ -6,4 +6,9 @@ public class DungeonController
 	{
 		
 	}
+	
+	public void startCombat()
+	{
+		
+	}
 }
