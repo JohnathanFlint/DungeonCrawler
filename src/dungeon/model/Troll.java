@@ -2,25 +2,11 @@ package dungeon.model;
 
 public class Troll extends Monster
 {
-	public int monsterHealth;
-	public int monsterCurrentHealth = ;
-	public int monsterStrength = 10;
-	public int dropChance = (int) (Math.random() * 10 + 9);	
-	public String monsterType = "Troll";
+	public static int trollChance = (int) (Math.random() * 100 + 1);
 	
-	public boolean monsterHitChance() 
+	public Troll()
 	{
-		return false;
+		super(60, 60, 10, trollChance, 40, 20, 0, 20);
 	}
-
-	public void monsterAttack() 
-	{
-		
-	}
-
-	public void monsterDeath() 
-	{
-		
-	}
-
+	
 }

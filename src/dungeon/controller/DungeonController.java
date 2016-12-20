@@ -1,4 +1,5 @@
 package dungeon.controller;
+import dungeon.model.*;
 
 public class DungeonController 
 {
@@ -7,8 +8,11 @@ public class DungeonController
 		
 	}
 	
-	public void startCombat()
+	public void startCombat(Monster monster)
 	{
-		
+		if( monster instanceof Troll)
+		{
+			
+		}
 	}
 }
