@@ -14,5 +14,15 @@ public class DungeonController
 		{
 			
 		}
+		
+		if(monster instanceof Goblin)
+		{
+			
+		}
+		
+		if(monster instanceof Slime)
+		{
+			
+		}
 	}
 }

@@ -48,7 +48,7 @@ public abstract class Monster
 
 	public void monsterAttack() 
 	{
-		if(monsterHitChance() == true)
+		if(monsterHitChance())
 		{
 			
 			Player.setCurrentHealth(Player.getCurrentHealth() - monsterStrength);
