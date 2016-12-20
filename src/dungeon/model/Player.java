@@ -1,7 +1,5 @@
 package dungeon.model;
 
-import java.util.Random;
-
 public class Player
 {
 	private int maxHealth = 100;
