@@ -11,8 +11,9 @@ public abstract class Monster
 	public int dropResist;
 	public static int monsterAgility;
 	public static int monsterSpeed;
+	public static int monsterXP;
 
-	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, int dropResist, int monsterAgility, int monsterSpeed)
+	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, int dropResist, int monsterAgility, int monsterSpeed, int monsterXP)
 	{
 		this.monsterHealth = monsterHealth;
 		this.monsterCurrentHealth = monsterCurrentHealth;
@@ -58,11 +59,11 @@ public abstract class Monster
 	{
 		if(monsterCurrentHealth <= 0)
 		{
-			
-				if(dropChance >= dropResist)
+			if(dropChance >= dropResist)
 				{
 					//drops item
 				}
+			Player.setPlayerXP(Player.getPlayerXP() + monsterXP);
 				//monster dies & combat ends
 		}
 	}
