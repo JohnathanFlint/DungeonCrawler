@@ -16,7 +16,7 @@ public class Player
 		int hitChance = (int) (Math.random() * 100 +1) + (precision);
 		boolean hasHit = false;
 		
-		if(hitChance > Monster.monsterAgility)
+		if(hitChance > Monster.getMonsterAgility())
 		{
 			hasHit = true;
 		}
@@ -27,14 +27,14 @@ public class Player
 	public void playerAttack() 
 	{
 		if(playerHitChance() == true)
-		Monster.monsterCurrentHealth = Monster.monsterCurrentHealth - playerStrength;
+		Monster.setMonsterCurrentHealth(Monster.getMonsterCurrentHealth() - playerStrength);
 	}
 
 	public void playerDeath() 
 	{
 		if(currentHealth <= 0)
 		{
-			//display game over and restart/quit buttons
+			//display game over and restart/quit buttons. Display death panel
 		}
 		
 	}
@@ -43,7 +43,7 @@ public class Player
 	{
 		int escapeChance = (int) (Math.random()* 100 + 1) + (playerSpeed);
 		
-		if(escapeChance > Monster.monsterSpeed)
+		if(escapeChance > Monster.getMonsterSpeed())
 		{
 			//Player escapes
 		}
