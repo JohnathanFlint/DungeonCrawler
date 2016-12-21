@@ -5,10 +5,10 @@ public abstract class Monster
 	private int monsterHealth;
 	private static int monsterCurrentHealth;
 	private int monsterStrength;
-	private int dropChance;	
+	private static int dropChance;	
 	private String monsterType;
 	private int monsterPrecision;
-	private int dropResist;
+	private static int dropResist;
 	private static int monsterAgility;
 	private static int monsterSpeed;
 	private static int monsterXP;
@@ -55,7 +55,7 @@ public abstract class Monster
 		}
 	}
 
-	public boolean monsterDeath() 
+	public static boolean monsterDeath() 
 	{
 		if(getMonsterCurrentHealth() <= 0)
 		{

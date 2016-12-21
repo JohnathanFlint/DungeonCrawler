@@ -5,6 +5,7 @@ import dungeon.model.*;
 
 public class DungeonController 
 {
+	private DungeonFrame appFrame;
 	public void start()
 	{
 		
@@ -28,11 +29,15 @@ public class DungeonController
 		}
 	}
 	
-	public void playerDeath()
+	public void combatEnd()
 	{
 		if(Player.playerDeath())
 		{
-			//set to death pane
+			appFrame.switchPanel("Death");
+		}
+		else if(Monster.monsterDeath())
+		{
+			appFrame.switchPanel("Victory");
 		}
 	}
 }

@@ -28,12 +28,16 @@ public class DungeonFrame extends JFrame
 		
 	}   
 	
-	/*public void switchFrame(int Panel)
+	public void switchPanel(String Panel)
 	{
-		if(Panel == 0)
+		if(Panel.equals("Death"))
 		{
-			this.setContentPane
+			this.setContentPane(deathAppPanel);
 		}
-	}*/
+		else if(Panel.equals("Victory"));
+		{
+			this.setContentPane(winAppPanel);
+		}
+	}
 
 }
