@@ -30,11 +30,15 @@ public class Player
 		Monster.setMonsterCurrentHealth(Monster.getMonsterCurrentHealth() - playerStrength);
 	}
 
-	public void playerDeath() 
+	public static boolean playerDeath() 
 	{
 		if(currentHealth <= 0)
 		{
-			//display game over and restart/quit buttons. Display death panel
+			return true;		
+		}
+		else
+		{
+			return false;
 		}
 		
 	}

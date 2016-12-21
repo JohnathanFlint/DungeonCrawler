@@ -55,7 +55,7 @@ public abstract class Monster
 		}
 	}
 
-	public void monsterDeath() 
+	public boolean monsterDeath() 
 	{
 		if(getMonsterCurrentHealth() <= 0)
 		{
@@ -64,7 +64,11 @@ public abstract class Monster
 					//drops item
 				}
 			Player.setPlayerXP(Player.getPlayerXP() + monsterXP);
-				//monster dies & combat ends. Display victory panel
+			return true;		
+		}
+		else
+		{
+			return false;
 		}
 	}
 

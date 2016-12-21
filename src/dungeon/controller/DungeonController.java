@@ -1,4 +1,6 @@
 package dungeon.controller;
+
+import dungeon.view.*;
 import dungeon.model.*;
 
 public class DungeonController 
@@ -23,6 +25,14 @@ public class DungeonController
 		if(monster instanceof Slime)
 		{
 			
+		}
+	}
+	
+	public void playerDeath()
+	{
+		if(Player.playerDeath())
+		{
+			//set to death pane
 		}
 	}
 }
