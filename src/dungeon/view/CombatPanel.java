@@ -11,6 +11,11 @@ public class CombatPanel extends JPanel
 {	
 	private DungeonController baseController;
 	private SpringLayout baseLayout;
+	private JButton fightButton;
+	private JButton runButton;
+	private JLabel playerDamage;
+	private JLabel monsterPic;
+	private JLabel playerPic;
 	
 	public CombatPanel(DungeonController baseController)
 	{
@@ -18,6 +23,9 @@ public class CombatPanel extends JPanel
 		
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
+		fightButton = new JButton("Attack");
+		runButton = new JButton("Run");
+		
 		
 		setupPanel();
 		setupLayout();
@@ -26,7 +34,8 @@ public class CombatPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		
+		this.setLayout(baseLayout);
+		this.setBackground(Color.GRAY);
 	}
 	
 	private void setupLayout()

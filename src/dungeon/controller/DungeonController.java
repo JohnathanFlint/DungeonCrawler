@@ -13,7 +13,7 @@ public class DungeonController
 	
 	public void startCombat(Monster monster)
 	{
-		if( monster instanceof Troll)
+		if(monster instanceof Troll)
 		{
 			
 		}

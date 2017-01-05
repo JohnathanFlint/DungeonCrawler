@@ -90,7 +90,8 @@ public class WorldPanel extends JPanel
 					if (displayHealth)
 					{
 						displayHealth = false;
-					} else
+					} 
+					else
 					{
 						displayHealth = true;
 					}
