@@ -4,7 +4,7 @@ public class Player
 {
 	private int maxHealth = 100;
 	private static int currentHealth = 100;
-	private int playerStrength = 10;
+	private static int playerStrength = 10;
 	private static int agility = 100;
 	private int precision = 0;
 	private int playerSpeed = 0;
@@ -96,6 +96,16 @@ public class Player
 	public static void setPlayerXP(int playerXP) 
 	{
 		Player.playerXP = playerXP;
+	}
+	
+	public static int getPlayerStrength()
+	{
+		return playerStrength;
+	}
+	
+	public static void setPlayerStrength(int playerStrength)
+	{
+		Player.playerStrength = playerStrength;
 	}
 	
 

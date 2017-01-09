@@ -25,7 +25,8 @@ public class CombatPanel extends JPanel
 		baseLayout = new SpringLayout();
 		fightButton = new JButton("Attack");
 		runButton = new JButton("Run");
-		
+		//layerDamage = new JLabel(Player.getPlayerStrength());
+		monsterPic = new JLabel
 		
 		setupPanel();
 		setupLayout();
@@ -48,4 +49,4 @@ public class CombatPanel extends JPanel
 		
 	}
 }
-//new ImageIcon(new HealthBar(width,height,maxHealth,health).render());
+//new ImageIcon(new HealthBar(width, height,maxHealth,health).render());
