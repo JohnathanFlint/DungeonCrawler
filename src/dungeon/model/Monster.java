@@ -12,8 +12,11 @@ public abstract class Monster
 	private static int monsterAgility;
 	private static int monsterSpeed;
 	private static int monsterXP;
+	private static String monsterPic;
+	private static String monsterName;
 
-	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, int dropResist, int monsterAgility, int monsterSpeed, int monsterXP)
+	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, 
+			int dropResist, int monsterAgility, int monsterSpeed, int monsterXP, String monsterPic, String monsterName)
 	{
 		this.monsterHealth = monsterHealth;
 		this.setMonsterCurrentHealth(monsterCurrentHealth);
@@ -23,6 +26,8 @@ public abstract class Monster
 		this.dropResist = dropResist;
 		this.setMonsterAgility(monsterAgility);
 		this.setMonsterSpeed(monsterSpeed);
+		this.monsterName = monsterName;
+		this.monsterPic = monsterPic;
 	}
 	
 	public String getType()
