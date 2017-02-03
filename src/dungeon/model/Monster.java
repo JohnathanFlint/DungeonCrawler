@@ -4,7 +4,7 @@ public abstract class Monster
 {
 	private int monsterHealth;
 	private static int monsterCurrentHealth;
-	private int monsterStrength;
+	private static int monsterStrength;
 	private static int dropChance;	
 	private String monsterType;
 	private int monsterPrecision;
@@ -100,4 +100,15 @@ public abstract class Monster
 	public static void setMonsterSpeed(int monsterSpeed) {
 		Monster.monsterSpeed = monsterSpeed;
 	}
+	
+	public static int getMonsterStrength()
+	{
+		return monsterStrength;
+	}
+	
+	public static void setMonsterStrength()
+	{
+		Monster.monsterStrength = monsterStrength;
+	}
+
 }

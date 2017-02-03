@@ -6,7 +6,7 @@ import dungeon.model.*;
 public class DungeonController 
 {
 	private DungeonFrame appFrame;
-	public static String monsterPicture;
+	public static String monsterPicture = "images/Troll.jpg";
 	
 	public DungeonController()
 	{
@@ -20,11 +20,10 @@ public class DungeonController
 	
 	public void startCombat(Monster monster)
 	{
-//		monster =  new Troll();
+		//monster =  new Troll();
 		
 		if(monster instanceof Troll)
 		{
-			Troll troll = (Troll)monster;
 			monsterPicture = "images/Troll.jpg";
 		}
 		
@@ -39,6 +38,16 @@ public class DungeonController
 		}
 	}
 	
+	public static String getMonsterPicture()
+	{
+		return monsterPicture;
+	}
+
+	public static void setMonsterPicture(String monsterPicture)
+	{
+		DungeonController.monsterPicture = monsterPicture;
+	}
+
 	public void combatEnd()
 	{
 		if(Player.playerDeath())
