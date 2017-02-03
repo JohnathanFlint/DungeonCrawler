@@ -20,6 +20,8 @@ public class CombatPanel extends JPanel
 	private JLabel monsterDamage;
 	private int frameWidth;
 	private int frameHeight;
+	private HealthBar playerHealth;
+	private HealthBar monsterHealth;
 	
 	public CombatPanel(DungeonController baseController)
 	{
@@ -27,19 +29,13 @@ public class CombatPanel extends JPanel
 		
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
-		fightButton = new JButton("Attack");
-		
-		runButton = new JButton("Run");
-		
-		playerDamage = new JLabel("Your damage is " + Integer.toString(Player.getPlayerStrength()));
-		
-		
+		fightButton = new JButton("Attack");		
+		runButton = new JButton("Run");		
+		playerDamage = new JLabel("Your damage is " + Integer.toString(Player.getPlayerStrength()));		
 		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(Monster.getMonsterStrength()));
-		String test = DungeonController.getMonsterPicture();
-		monsterPic = new JLabel(new ImageIcon(getClass().getResource(DungeonController.getMonsterPicture())));		
-		
-		
+		monsterPic = new JLabel(new ImageIcon(getClass().getResource(DungeonController.getMonsterPicture())));			
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
+		monsterHealth = new HealthBar();
 		
 		
 		
@@ -87,4 +83,6 @@ public class CombatPanel extends JPanel
 		
 	}
 }
-//new ImageIcon(new HealthBar(width, height,maxHealth,health).render());
+
+
+/* I like the concept of the project, and it seems really cool */
