@@ -35,7 +35,7 @@ public class CombatPanel extends JPanel
 		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(Monster.getMonsterStrength()));
 		monsterPic = new JLabel(new ImageIcon(getClass().getResource(DungeonController.getMonsterPicture())));			
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
-		monsterHealth = new HealthBar();
+		playerHealth = new HealthBar(99, 92, );
 		
 		
 		
