@@ -3,17 +3,19 @@ package dungeon.model;
 public abstract class Monster 
 {
 	private int monsterHealth;
-	private static int monsterCurrentHealth;
-	private static int monsterStrength;
-	private static int dropChance;	
+	private int monsterCurrentHealth;
+	private int monsterStrength;
+	private int dropChance;	
 	private String monsterType;
 	private int monsterPrecision;
-	private static int dropResist;
-	private static int monsterAgility;
-	private static int monsterSpeed;
-	private static int monsterXP;
-	private static String monsterPic;
-	private static String monsterName;
+	private int dropResist;
+	private int monsterAgility;
+	private int monsterSpeed;
+	private int monsterXP;
+	private String monsterPic;
+	private String monsterName;
+	Player player = new Player();
+	Monster monster = new Monster();
 
 	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, 
 			int dropResist, int monsterAgility, int monsterSpeed, int monsterXP, String monsterPic, String monsterName)
@@ -56,7 +58,7 @@ public abstract class Monster
 		if(monsterHitChance())
 		{
 			
-			Player.setCurrentHealth(Player.getCurrentHealth() - monsterStrength);
+			Player.setCurrentHealth(player.getCurrentHealth() - monsterStrength);
 		}
 	}
 

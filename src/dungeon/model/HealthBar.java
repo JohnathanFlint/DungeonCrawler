@@ -74,28 +74,28 @@ public class HealthBar
 		{
 			for(int y =0; y<healthBar.getHeight();y++)
 			{
-				healthBar.setRGB(pos,y,Color.gray.getRGB());
+				healthBar.setRGB(pos,y,Color.black.getRGB());
 			}
 		}
 		for(int pos = 0; pos<borderWidth;pos++)
 		{
 			for(int y =0; y<healthBar.getHeight();y++)
 			{
-				healthBar.setRGB(pos+width+borderWidth,y,Color.gray.getRGB());
+				healthBar.setRGB(pos+width+borderWidth,y,Color.black.getRGB());
 			}
 		}
 		for(int pos = 0; pos<borderHeight;pos++)
 		{
 			for(int y =0; y<healthBar.getWidth();y++)
 			{
-				healthBar.setRGB(y,pos,Color.gray.getRGB());
+				healthBar.setRGB(y,pos,Color.black.getRGB());
 			}
 		}
 		for(int pos = 0; pos<borderHeight;pos++)
 		{
 			for(int y =0; y<healthBar.getWidth();y++)
 			{
-				healthBar.setRGB(y,pos+height+borderHeight,Color.gray.getRGB());
+				healthBar.setRGB(y,pos+height+borderHeight,Color.black.getRGB());
 			}
 		}
 	}

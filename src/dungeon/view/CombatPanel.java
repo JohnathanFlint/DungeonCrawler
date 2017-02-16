@@ -1,11 +1,21 @@
 package dungeon.view;
 
-import dungeon.model.*;
-import javax.swing.*;
-import dungeon.controller.DungeonController;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.event.*;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SpringLayout;
+
+import dungeon.controller.DungeonController;
+import dungeon.model.HealthBar;
+import dungeon.model.Monster;
+import dungeon.model.Player;
 
 
 public class CombatPanel extends JPanel
@@ -22,6 +32,7 @@ public class CombatPanel extends JPanel
 	private int frameHeight;
 	private HealthBar playerHealth;
 	private HealthBar monsterHealth;
+	private JLabel playerHealthRender;
 	
 	public CombatPanel(DungeonController baseController)
 	{
@@ -35,7 +46,18 @@ public class CombatPanel extends JPanel
 		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(Monster.getMonsterStrength()));
 		monsterPic = new JLabel(new ImageIcon(getClass().getResource(DungeonController.getMonsterPicture())));			
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
-		playerHealth = new HealthBar(99, 92, );
+		Player player = new Player();
+		playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
+		playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));
+		try
+		{
+			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
 		
 		
 		
@@ -59,6 +81,7 @@ public class CombatPanel extends JPanel
 		this.add(runButton);
 		this.add(playerDamage);
 		this.add(monsterDamage);
+		this.add(playerHealthRender);
 	}
 	
 	private void setupLayout()
@@ -76,6 +99,8 @@ public class CombatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.NORTH, runButton, 0, SpringLayout.NORTH, fightButton);
 		baseLayout.putConstraint(SpringLayout.WEST, runButton, 40, SpringLayout.EAST, fightButton);
 		baseLayout.putConstraint(SpringLayout.EAST, fightButton, -769, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, playerHealthRender, 6, SpringLayout.SOUTH, playerPic);
+		baseLayout.putConstraint(SpringLayout.WEST, playerHealthRender, 0, SpringLayout.WEST, playerPic);
 	}
 	
 	private void setupListeners()

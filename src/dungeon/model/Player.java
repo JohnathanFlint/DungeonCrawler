@@ -2,7 +2,7 @@ package dungeon.model;
 
 public class Player
 {
-	private int maxHealth = 100;
+	private static int maxHealth = 100;
 	private static int currentHealth = 100;
 	private static int playerStrength = 10;
 	private static int agility = 100;
@@ -86,6 +86,16 @@ public class Player
 	public static void setCurrentHealth(int currentHealth) 
 	{
 		Player.currentHealth = currentHealth;
+	}
+	
+	public static int getMaxHealth()
+	{
+		return maxHealth;
+	}
+	
+	public static void setMaxHealth()
+	{
+		Player.maxHealth = maxHealth;
 	}
 
 	public static int getPlayerXP() 

@@ -5,11 +5,14 @@ import dungeon.model.*;
 
 public class DungeonController 
 {
+	private Troll trollProfile;
+	private Player playerProfile;
 	private DungeonFrame appFrame;
 	public static String monsterPicture = "images/Troll.jpg";
 	
 	public DungeonController()
 	{
+		playerProfile = new Player();
 		appFrame = new DungeonFrame(this);
 	}
 	
