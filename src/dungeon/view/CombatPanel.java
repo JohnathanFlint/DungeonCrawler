@@ -33,20 +33,22 @@ public class CombatPanel extends JPanel
 	private HealthBar playerHealth;
 	private HealthBar monsterHealth;
 	private JLabel playerHealthRender;
+	Player player = new Player();
+	Monster currentMonster;
 	
 	public CombatPanel(DungeonController baseController)
 	{
 		super();
 		
 		this.baseController = baseController;
+		 currentMonster = baseController.getCurrentMonster();
 		baseLayout = new SpringLayout();
 		fightButton = new JButton("Attack");		
 		runButton = new JButton("Run");		
-		playerDamage = new JLabel("Your damage is " + Integer.toString(Player.getPlayerStrength()));		
-		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(Monster.getMonsterStrength()));
-		monsterPic = new JLabel(new ImageIcon(getClass().getResource(DungeonController.getMonsterPicture())));			
+		playerDamage = new JLabel("Your damage is " + Integer.toString(player.getPlayerStrength()));		
+		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(currentMonster.getMonsterStrength()));
+		monsterPic = new JLabel(new ImageIcon(getClass().getResource(baseController.getMonsterPicture())));			
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
-		Player player = new Player();
 		playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
 		playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));
 		try

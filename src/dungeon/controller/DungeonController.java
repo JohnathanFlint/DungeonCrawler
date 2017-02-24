@@ -5,61 +5,167 @@ import dungeon.model.*;
 
 public class DungeonController 
 {
-	private Troll trollProfile;
+	private Troll troll = new Troll();
+	private Slime slime = new Slime();
+	private Goblin goblin = new Goblin();
 	private Player playerProfile;
 	private DungeonFrame appFrame;
-	public static String monsterPicture = "images/Troll.jpg";
+	public String monsterPicture = "images/Troll.jpg";
+	Monster currentMonster = troll;	
 	
 	public DungeonController()
 	{
 		playerProfile = new Player();
+		
 		appFrame = new DungeonFrame(this);
 	}
 	
 	public void start()
 	{
-		
+
 	}
 	
 	public void startCombat(Monster monster)
 	{
-		//monster =  new Troll();
+		monster =  new Troll();
 		
 		if(monster instanceof Troll)
 		{
 			monsterPicture = "images/Troll.jpg";
+			currentMonster = troll;
 		}
 		
 		if(monster instanceof Goblin)
 		{
 			monsterPicture = "images/Goblin.jpg";
+			currentMonster = goblin;
 		}
 		
 		if(monster instanceof Slime)
 		{
 			monsterPicture = "images/Slime.jpg";
+			currentMonster = slime;
+		}
+		
+		currentMonster.setPlayer(playerProfile);
+
+	}
+	
+	//Player Methods
+	
+	public boolean playerHitChance() 
+	{
+		int hitChance = (int) (Math.random() * 100 +1) + (playerProfile.getPrecision());
+		boolean hasHit = false;
+		
+		if(hitChance > currentMonster.getMonsterAgility())
+		{
+			hasHit = true;
+		}
+		return hasHit;
+		
+	}
+
+	public void playerAttack() 
+	{
+		if(playerHitChance() == true)
+		currentMonster.setMonsterCurrentHealth(currentMonster.getMonsterCurrentHealth() - playerProfile.getPlayerStrength());
+	}
+	
+	public boolean run() 
+	{
+		int escapeChance = (int) (Math.random()* 100 + 1) + (playerProfile.getPlayerSpeed());
+		
+		if(escapeChance > currentMonster.getMonsterSpeed())
+		{
+			return true;
+		}
+		else
+		{
+			return false;
 		}
 	}
 	
-	public static String getMonsterPicture()
+	
+	//monster methods
+	public boolean monsterHitChance() 
 	{
-		return monsterPicture;
+		int hitChance = (int)(Math.random() * 100 + 1) + (currentMonster.getMonsterPrecision());
+		boolean hasHit = false;
+		
+		if(hitChance > playerProfile.getAgility())
+		{
+			hasHit = true;
+		}
+		else
+		{
+			hasHit = false;
+		}
+		return hasHit;
 	}
 
-	public static void setMonsterPicture(String monsterPicture)
+	public void monsterAttack() 
 	{
-		DungeonController.monsterPicture = monsterPicture;
+		if(monsterHitChance())
+		{
+			
+			playerProfile.setCurrentHealth(playerProfile.getCurrentHealth() - currentMonster.getMonsterStrength());
+		}
 	}
+	
+	public boolean monsterDeath() 
+	{
+		if(getMonsterCurrentHealth() <= 0)
+		{
+			if(currentMonster.getDropChance() >= currentMonster.getDropResist())
+				{
+					//drops item
+				}
+			playerProfile.setPlayerXP(playerProfile.getPlayerXP() + currentMonster.getMonsterXP());
+			return true;		
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
 
 	public void combatEnd()
 	{
-		if(Player.playerDeath())
+		if(playerProfile.playerDeath())
 		{
 			appFrame.switchPanel("Death");
 		}
-		else if(Monster.monsterDeath())
+		else if(monsterDeath())
 		{
 			appFrame.switchPanel("Victory");
 		}
+		else if(run())
+		{
+			//escape screen call
+		}
 	}
+	
+	public Monster getCurrentMonster()
+	{
+		return currentMonster;
+	}
+
+	public void setCurrentMonster(Monster currentMonster)
+	{
+		this.currentMonster = currentMonster;
+	}
+	public void setMonsterPicture(String monsterPicture)
+	{
+		this.monsterPicture = monsterPicture;
+	}
+
+	public String getMonsterPicture()
+	{
+		return monsterPicture;
+	}
+	
+	
+
 }

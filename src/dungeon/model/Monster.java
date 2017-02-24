@@ -14,8 +14,7 @@ public abstract class Monster
 	private int monsterXP;
 	private String monsterPic;
 	private String monsterName;
-	Player player = new Player();
-	Monster monster = new Monster();
+	Player player; 
 
 	public Monster(int monsterHealth, int monsterCurrentHealth, int monsterStrength, int dropChance, int monsterPrecision, 
 			int dropResist, int monsterAgility, int monsterSpeed, int monsterXP, String monsterPic, String monsterName)
@@ -37,80 +36,47 @@ public abstract class Monster
 		return this.getClass().getSimpleName();
 	}
 	
-	public boolean monsterHitChance() 
-	{
-		int hitChance = (int)(Math.random() * 100 + 1) + (monsterPrecision);
-		boolean hasHit = false;
-		
-		if(hitChance > Player.getAgility())
-		{
-			hasHit = true;
-		}
-		else
-		{
-			hasHit = false;
-		}
-		return hasHit;
-	}
+	
 
-	public void monsterAttack() 
-	{
-		if(monsterHitChance())
-		{
-			
-			Player.setCurrentHealth(player.getCurrentHealth() - monsterStrength);
-		}
-	}
+	
 
-	public static boolean monsterDeath() 
-	{
-		if(getMonsterCurrentHealth() <= 0)
-		{
-			if(dropChance >= dropResist)
-				{
-					//drops item
-				}
-			Player.setPlayerXP(Player.getPlayerXP() + monsterXP);
-			return true;		
-		}
-		else
-		{
-			return false;
-		}
-	}
-
-	public static int getMonsterAgility() {
+	public int getMonsterAgility() {
 		return monsterAgility;
 	}
 
-	public static void setMonsterAgility(int monsterAgility) {
-		Monster.monsterAgility = monsterAgility;
+	public void setMonsterAgility(int monsterAgility) {
+		this.monsterAgility = monsterAgility;
 	}
 
-	public static int getMonsterCurrentHealth() {
+	public int getMonsterCurrentHealth() {
 		return monsterCurrentHealth;
 	}
 
-	public static void setMonsterCurrentHealth(int monsterCurrentHealth) {
-		Monster.monsterCurrentHealth = monsterCurrentHealth;
+	public void setMonsterCurrentHealth(int monsterCurrentHealth) {
+		this.monsterCurrentHealth = monsterCurrentHealth;
 	}
 
-	public static int getMonsterSpeed() {
+	public int getMonsterSpeed() {
 		return monsterSpeed;
 	}
 
-	public static void setMonsterSpeed(int monsterSpeed) {
-		Monster.monsterSpeed = monsterSpeed;
+	public void setMonsterSpeed(int monsterSpeed) {
+		this.monsterSpeed = monsterSpeed;
 	}
 	
-	public static int getMonsterStrength()
+	public int getMonsterStrength()
 	{
 		return monsterStrength;
 	}
 	
-	public static void setMonsterStrength()
+	public void setMonsterStrength()
 	{
-		Monster.monsterStrength = monsterStrength;
+		this.monsterStrength = monsterStrength;
+	}
+	
+	public void setPlayer(Player current)
+	{
+		this.player = current;
 	}
 
 }

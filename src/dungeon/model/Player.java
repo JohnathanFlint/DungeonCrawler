@@ -1,36 +1,25 @@
 package dungeon.model;
 
+import dungeon.controller.DungeonController;
+
 public class Player
 {
-	private static int maxHealth = 100;
-	private static int currentHealth = 100;
-	private static int playerStrength = 10;
-	private static int agility = 100;
+	private int maxHealth = 100;
+	private int currentHealth = 100;
+	private int playerStrength = 10;
+	private int agility = 100;
 	private int precision = 0;
 	private int playerSpeed = 0;
-	private static int playerXP = 0;
-	private int playerLevel = 1;
+	private int playerXP = 0;
+	private int playerLevel = 1; 	
+ 	
+ 	public Player()
+ 	{
+ 		
+ 	}
+	
 
-	public boolean playerHitChance() 
-	{
-		int hitChance = (int) (Math.random() * 100 +1) + (precision);
-		boolean hasHit = false;
-		
-		if(hitChance > Monster.getMonsterAgility())
-		{
-			hasHit = true;
-		}
-		return hasHit;
-		
-	}
-
-	public void playerAttack() 
-	{
-		if(playerHitChance() == true)
-		Monster.setMonsterCurrentHealth(Monster.getMonsterCurrentHealth() - playerStrength);
-	}
-
-	public static boolean playerDeath() 
+	public boolean playerDeath() 
 	{
 		if(currentHealth <= 0)
 		{
@@ -43,15 +32,7 @@ public class Player
 		
 	}
 
-	public void run() 
-	{
-		int escapeChance = (int) (Math.random()* 100 + 1) + (playerSpeed);
-		
-		if(escapeChance > Monster.getMonsterSpeed())
-		{
-			//Player escapes
-		}
-	}
+	
 	
 	public void levelUp()
 	{
@@ -68,54 +49,77 @@ public class Player
 		}
 	}
 
-	public static int getAgility() 
+	public int getAgility() 
 	{
 		return agility;
 	}
 
-	public static void setAgility(int agility) 
+	public void setAgility(int agility) 
 	{
-		Player.agility = agility;
+		this.agility = agility;
 	}
 
-	public static int getCurrentHealth() 
+	public int getCurrentHealth() 
 	{
 		return currentHealth;
 	}
 
-	public static void setCurrentHealth(int currentHealth) 
+	public void setCurrentHealth(int currentHealth) 
 	{
-		Player.currentHealth = currentHealth;
+		this.currentHealth = currentHealth;
 	}
 	
-	public static int getMaxHealth()
+	public int getMaxHealth()
 	{
 		return maxHealth;
 	}
 	
-	public static void setMaxHealth()
+	public void setMaxHealth()
 	{
-		Player.maxHealth = maxHealth;
+		this.maxHealth = maxHealth;
 	}
 
-	public static int getPlayerXP() 
+	public int getPlayerXP() 
 	{
 		return playerXP;
 	}
 
-	public static void setPlayerXP(int playerXP) 
+	public void setPlayerXP(int playerXP) 
 	{
-		Player.playerXP = playerXP;
+		this.playerXP = playerXP;
 	}
 	
-	public static int getPlayerStrength()
+	public int getPlayerStrength()
 	{
 		return playerStrength;
 	}
 	
-	public static void setPlayerStrength(int playerStrength)
+	public void setPlayerStrength(int playerStrength)
 	{
-		Player.playerStrength = playerStrength;
+		this.playerStrength = playerStrength;
+	}
+	
+	
+	
+	public int getPrecision()
+	{
+		return precision;
+	}
+
+	public void setPrecision(int precision)
+	{
+		this.precision = precision;
+	}
+	
+	public int getPlayerSpeed()
+	{
+		return playerSpeed;
+	}
+
+
+	public void setPlayerSpeed(int playerSpeed)
+	{
+		this.playerSpeed = playerSpeed;
 	}
 	
 
