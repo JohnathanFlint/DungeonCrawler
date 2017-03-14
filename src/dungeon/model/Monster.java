@@ -78,5 +78,45 @@ public abstract class Monster
 	{
 		this.player = current;
 	}
+	
+	public int getMonsterPrecision()
+	{
+		return monsterPrecision;
+	}
+
+	public void setMonsterPrecision(int monsterPrecision)
+	{
+		this.monsterPrecision = monsterPrecision;
+	}
+
+	public int getDropChance()
+	{
+		return dropChance;
+	}
+
+	public void setDropChance(int dropChance)
+	{
+		this.dropChance = dropChance;
+	}
+	
+	public int getDropResist()
+	{
+		return dropResist;
+	}
+
+	public void setDropResist(int dropResist)
+	{
+		this.dropResist = dropResist;
+	}
+
+	public int getMonsterXP()
+	{
+		return monsterXP;
+	}
+
+	public void setMonsterXP(int monsterXP)
+	{
+		this.monsterXP = monsterXP;
+	}
 
 }

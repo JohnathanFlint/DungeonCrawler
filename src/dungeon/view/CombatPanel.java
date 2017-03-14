@@ -2,6 +2,8 @@ package dungeon.view;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -41,7 +43,8 @@ public class CombatPanel extends JPanel
 		super();
 		
 		this.baseController = baseController;
-		 currentMonster = baseController.getCurrentMonster();
+		currentMonster = baseController.getCurrentMonster();
+		baseController.startCombat(baseController.getCurrentMonster());
 		baseLayout = new SpringLayout();
 		fightButton = new JButton("Attack");		
 		runButton = new JButton("Run");		
@@ -107,7 +110,17 @@ public class CombatPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		fightButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent click)
+					{
+						baseController.playerAttack();
+						repaint();
+						baseController.monsterAttack();
+						repaint();
+						baseController.combatEnd();
+					}
+				});
 	}
 }
 
