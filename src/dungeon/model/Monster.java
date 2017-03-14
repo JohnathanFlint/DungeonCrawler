@@ -119,4 +119,16 @@ public abstract class Monster
 		this.monsterXP = monsterXP;
 	}
 
+	public int getMonsterHealth()
+	{
+		return monsterHealth;
+	}
+
+	public void setMonsterHealth(int monsterHealth)
+	{
+		this.monsterHealth = monsterHealth;
+	}
+
+	
+
 }

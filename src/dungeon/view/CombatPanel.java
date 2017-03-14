@@ -35,6 +35,7 @@ public class CombatPanel extends JPanel
 	private HealthBar playerHealth;
 	private HealthBar monsterHealth;
 	private JLabel playerHealthRender;
+	private JLabel monsterHealthRender;
 	Player player = new Player();
 	Monster currentMonster;
 	
@@ -57,12 +58,23 @@ public class CombatPanel extends JPanel
 		try
 		{
 			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
-		} catch (IOException e)
+		} 
+		catch (IOException e)
 		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
+		monsterHealth = new HealthBar(500, 200, currentMonster.getMonsterHealth(), currentMonster.getMonsterCurrentHealth());
+		monsterHealthRender = new JLabel(new ImageIcon(monsterHealth.render()));
+		try
+		{
+			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
+		}
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		
@@ -87,6 +99,7 @@ public class CombatPanel extends JPanel
 		this.add(playerDamage);
 		this.add(monsterDamage);
 		this.add(playerHealthRender);
+		this.add(monsterHealthRender);
 	}
 	
 	private void setupLayout()
