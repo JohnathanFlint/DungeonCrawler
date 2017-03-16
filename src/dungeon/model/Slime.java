@@ -6,7 +6,7 @@ public static int slimeChance = (int) (Math.random() * 100 + 1);
 	
 	public Slime()
 	{
-		super(30, 30, 2, slimeChance, 100, 90, 20, 0, 5, "Pictures/Slime.jpg", "Slime");
+		super(30, 30, 7, slimeChance, 100, 90, 20, 0, 5, "Pictures/Slime.jpg", "Slime");
 		
 	}
 }

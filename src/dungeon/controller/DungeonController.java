@@ -67,8 +67,14 @@ public class DungeonController
 
 	public void playerAttack() 
 	{
+		System.out.println(currentMonster.getMonsterCurrentHealth());
+
 		if(playerHitChance() == true)
-		currentMonster.setMonsterCurrentHealth(currentMonster.getMonsterCurrentHealth() - playerProfile.getPlayerStrength());
+		{
+			currentMonster.setMonsterCurrentHealth(currentMonster.getMonsterCurrentHealth() - playerProfile.getPlayerStrength());
+		}
+		
+		System.out.println(currentMonster.getMonsterCurrentHealth());
 		
 		monsterDeath();
 	}
@@ -107,11 +113,14 @@ public class DungeonController
 
 	public void monsterAttack() 
 	{
+		System.out.println(playerProfile.getCurrentHealth());
+		
 		if(monsterHitChance())
 		{
 			
 			playerProfile.setCurrentHealth(playerProfile.getCurrentHealth() - currentMonster.getMonsterStrength());
 		}
+		System.out.println(playerProfile.getCurrentHealth());
 	}
 	
 	public boolean monsterDeath() 
@@ -146,7 +155,7 @@ public class DungeonController
 		}
 		else if(run())
 		{
-			//escape screen call
+			appFrame.switchPanel("DungeonEscape");
 		}
 	}
 	

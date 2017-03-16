@@ -48,10 +48,10 @@ public class HealthBar
 		BufferedImage healthBar = new BufferedImage(width + (borderWidth * 2), height + (borderHeight * 2), BufferedImage.TYPE_INT_ARGB);
 
 		drawBorder(healthBar);
-		System.out.println(healthBar.getHeight());
-		System.out.println(healthBar.getWidth());
-		System.out.println(width);
-		System.out.println(height);
+//		System.out.println(healthBar.getHeight());
+//		System.out.println(healthBar.getWidth());
+//		System.out.println(width);
+//		System.out.println(height);
 		for (int x = 0; x <width; x++)
 		{
 			for (int y = 0; y <= height; y++)

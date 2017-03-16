@@ -5,12 +5,13 @@ import dungeon.controller.DungeonController;
 import java.awt.*;
 import dungeon.model.*;
 
-public class DungeonFrame extends JFrame
+public class DungeonFrame extends JFrame  
 {
 	private DungeonController baseController;
 	private CombatPanel fightAppPanel;
 	private DeathPanel deathAppPanel;
 	private VictoryPanel winAppPanel;
+	private DungeonEscape escapeAppPanel;
 	
 	public DungeonFrame (DungeonController baseController)
 	{
@@ -19,6 +20,7 @@ public class DungeonFrame extends JFrame
 		fightAppPanel = new CombatPanel(baseController);
 		deathAppPanel = new DeathPanel(baseController);
 		winAppPanel = new VictoryPanel(baseController);
+		escapeAppPanel = new DungeonEscape(baseController);
 		
 		setupFrame();
 	}
@@ -42,14 +44,20 @@ public class DungeonFrame extends JFrame
 	
 	public void switchPanel(String Panel)
 	{
+		this.removeAll();
 		if(Panel.equals("Death"))
 		{
 			this.setContentPane(deathAppPanel);
 		}
-		else if(Panel.equals("Victory"));
+		if(Panel.equals("Victory"))
 		{
 			this.setContentPane(winAppPanel);
 		}
+		if(Panel.equals("DungeonEscape"))
+		{
+			this.setContentPane(escapeAppPanel);
+		}
+		this.repaint();
 	}
 
 }

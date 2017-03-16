@@ -55,26 +55,18 @@ public class CombatPanel extends JPanel
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
 		playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
 		playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));
-		try
-		{
-			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
-		} 
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try
+//		{
+//			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
+//		} 
+//		catch (IOException e)
+//		{
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		monsterHealth = new HealthBar(500, 200, currentMonster.getMonsterHealth(), currentMonster.getMonsterCurrentHealth());
 		monsterHealthRender = new JLabel(new ImageIcon(monsterHealth.render()));
-		try
-		{
-			ImageIO.write(playerHealth.render(),"PNG",new File("/Users/nwhi5696/Desktop/test.png"));
-		}
-		catch (IOException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
 		
 		
 		
@@ -128,9 +120,27 @@ public class CombatPanel extends JPanel
 					public void actionPerformed(ActionEvent click)
 					{
 						baseController.playerAttack();
-						repaint();
 						baseController.monsterAttack();
+						remove(playerHealthRender);
+						playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
+						playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));
+						add(playerHealthRender);
+						remove(monsterHealthRender);
+						monsterHealth = new HealthBar(500, 200, currentMonster.getMonsterHealth(), currentMonster.getMonsterCurrentHealth());
+						monsterHealthRender = new JLabel(new ImageIcon(monsterHealth.render()));
+						add(monsterHealthRender);
+						setupLayout();
 						repaint();
+						revalidate();
+						baseController.combatEnd();
+					}
+				});
+		runButton.addActionListener(new ActionListener() 
+				{
+					public void actionPerformed(ActionEvent click)
+					{
+//						baseController.run();
+						System.out.println(baseController.run());
 						baseController.combatEnd();
 					}
 				});

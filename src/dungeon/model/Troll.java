@@ -6,7 +6,7 @@ public class Troll extends Monster
 	
 	public Troll()
 	{
-		super(60, 60, 10, trollChance, 40, 20, 0, 20, 20, "Pictures/Troll.jpg", "Troll");
+		super(60, 60, 15, trollChance, 40, 20, 0, 20, 20, "Pictures/Troll.jpg", "Troll");
 	}
 	
 }
