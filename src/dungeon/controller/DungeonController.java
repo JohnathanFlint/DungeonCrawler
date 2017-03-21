@@ -147,15 +147,24 @@ public class DungeonController
 	{
 		if(playerProfile.playerDeath())
 		{
+			System.out.println("You dead");
 			appFrame.switchPanel("Death");
 		}
 		else if(monsterDeath())
 		{
+			System.out.println("They dead");
+
 			appFrame.switchPanel("Victory");
 		}
 		else if(run())
 		{
+			System.out.println("You coward");
+
 			appFrame.switchPanel("DungeonEscape");
+		}
+		else
+		{
+			System.out.println("Fail");
 		}
 	}
 	

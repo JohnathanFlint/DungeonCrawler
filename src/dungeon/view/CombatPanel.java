@@ -119,8 +119,21 @@ public class CombatPanel extends JPanel
 				{
 					public void actionPerformed(ActionEvent click)
 					{
-						baseController.playerAttack();
-						baseController.monsterAttack();
+						if(player.getPlayerSpeed() > currentMonster.getMonsterSpeed())
+						{
+							baseController.playerAttack();
+							baseController.monsterAttack();
+						}
+						else if(player.getPlayerSpeed() < currentMonster.getMonsterSpeed())
+						{
+							baseController.monsterAttack();
+							baseController.playerAttack();
+						}
+						else
+						{
+							baseController.playerAttack();
+							baseController.monsterAttack();
+						}
 						remove(playerHealthRender);
 						playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
 						playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));

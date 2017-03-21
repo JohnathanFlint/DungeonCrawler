@@ -30,6 +30,7 @@ public class DungeonEscape extends JPanel
 	private JLabel escapeLabel;
 	private JLabel rewardLabel;
 	
+	
 	Monster currentMonster;
 	
 	public DungeonEscape(DungeonController baseController)
@@ -39,6 +40,10 @@ public class DungeonEscape extends JPanel
 		currentMonster = baseController.getCurrentMonster();
 		continueButton = new JButton("Continue?");
 		escapeLabel = new JLabel("This will change");
+		baseLayout.putConstraint(SpringLayout.NORTH, continueButton, 79, SpringLayout.SOUTH, escapeLabel);
+		baseLayout.putConstraint(SpringLayout.EAST, continueButton, 0, SpringLayout.EAST, escapeLabel);
+		baseLayout.putConstraint(SpringLayout.NORTH, escapeLabel, 95, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, escapeLabel, 419, SpringLayout.WEST, this);
 		
 		if(currentMonster instanceof Slime)
 		{
@@ -61,6 +66,7 @@ public class DungeonEscape extends JPanel
 		this.setLayout(baseLayout);;
 		this.setPreferredSize(new Dimension(960, 540));
 		this.setBackground(Color.GRAY);
+		
 		
 		this.add(escapeLabel);
 		this.add(continueButton);
@@ -85,3 +91,8 @@ public class DungeonEscape extends JPanel
 				});
 	}
 }
+	
+	
+		
+
+

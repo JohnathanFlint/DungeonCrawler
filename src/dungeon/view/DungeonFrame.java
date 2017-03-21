@@ -44,9 +44,10 @@ public class DungeonFrame extends JFrame
 	
 	public void switchPanel(String Panel)
 	{
-		this.removeAll();
+		this.setVisible(false);
 		if(Panel.equals("Death"))
 		{
+			
 			this.setContentPane(deathAppPanel);
 		}
 		if(Panel.equals("Victory"))
@@ -56,8 +57,11 @@ public class DungeonFrame extends JFrame
 		if(Panel.equals("DungeonEscape"))
 		{
 			this.setContentPane(escapeAppPanel);
+			
 		}
-		this.repaint();
+		this.revalidate();
+		this.setVisible(true);
+		
 	}
 
 }
