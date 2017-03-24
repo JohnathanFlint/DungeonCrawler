@@ -17,9 +17,9 @@ public class DungeonFrame extends JFrame
 	{
 		super();
 		this.baseController = baseController;
-		fightAppPanel = new CombatPanel(baseController);
+		fightAppPanel = new CombatPanel(baseController, baseController.getPlayerProfile(), baseController.getCurrentMonster());
 		deathAppPanel = new DeathPanel(baseController);
-		winAppPanel = new VictoryPanel(baseController);
+		winAppPanel = new VictoryPanel(baseController, baseController.getPlayerProfile(), baseController.getCurrentMonster());
 		escapeAppPanel = new DungeonEscape(baseController);
 		
 		setupFrame();
@@ -47,11 +47,11 @@ public class DungeonFrame extends JFrame
 		this.setVisible(false);
 		if(Panel.equals("Death"))
 		{
-			
 			this.setContentPane(deathAppPanel);
 		}
 		if(Panel.equals("Victory"))
 		{
+			winAppPanel = new VictoryPanel(baseController, baseController.getPlayerProfile(), baseController.getCurrentMonster());
 			this.setContentPane(winAppPanel);
 		}
 		if(Panel.equals("DungeonEscape"))

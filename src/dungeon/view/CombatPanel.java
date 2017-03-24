@@ -36,15 +36,16 @@ public class CombatPanel extends JPanel
 	private HealthBar monsterHealth;
 	private JLabel playerHealthRender;
 	private JLabel monsterHealthRender;
-	Player player = new Player();
+	Player player;
 	Monster currentMonster;
 	
-	public CombatPanel(DungeonController baseController)
+	public CombatPanel(DungeonController baseController, Player player, Monster currentMonster)
 	{
 		super();
 		
 		this.baseController = baseController;
-		currentMonster = baseController.getCurrentMonster();
+		this.player = player;
+		this.currentMonster = currentMonster;
 		baseController.startCombat(baseController.getCurrentMonster());
 		baseLayout = new SpringLayout();
 		fightButton = new JButton("Attack");		
@@ -145,7 +146,11 @@ public class CombatPanel extends JPanel
 						setupLayout();
 						repaint();
 						revalidate();
-						baseController.combatEnd();
+						
+						if(player.getCurrentHealth() <= 0 || currentMonster.getMonsterCurrentHealth() <= 0)
+						{
+							baseController.combatEnd();
+						}
 					}
 				});
 		runButton.addActionListener(new ActionListener() 

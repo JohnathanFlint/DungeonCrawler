@@ -32,8 +32,6 @@ public class Player
 		
 	}
 
-	
-	
 	public void levelUp()
 	{
 		if(playerXP >= playerLevel * 10)
@@ -44,7 +42,7 @@ public class Player
 			agility = agility + 2;
 			precision = precision + 10;
 			playerSpeed = playerSpeed + 10;
-			playerXP = 0;
+			//playerXP = 0;
 			playerLevel = playerLevel + 1;
 		}
 	}
@@ -120,6 +118,23 @@ public class Player
 	public void setPlayerSpeed(int playerSpeed)
 	{
 		this.playerSpeed = playerSpeed;
+	}
+	
+	public int getPlayerLevel()
+	{
+		return playerLevel;
+	}
+
+
+	public void setPlayerLevel(int playerLevel)
+	{
+		this.playerLevel = playerLevel;
+	}
+
+
+	public void setMaxHealth(int maxHealth)
+	{
+		this.maxHealth = maxHealth;
 	}
 	
 

@@ -29,6 +29,7 @@ public class DungeonEscape extends JPanel
 	private JButton continueButton;
 	private JLabel escapeLabel;
 	private JLabel rewardLabel;
+	private JLabel runningPic;
 	
 	
 	Monster currentMonster;
@@ -40,11 +41,6 @@ public class DungeonEscape extends JPanel
 		currentMonster = baseController.getCurrentMonster();
 		continueButton = new JButton("Continue?");
 		escapeLabel = new JLabel("This will change");
-		baseLayout.putConstraint(SpringLayout.NORTH, continueButton, 79, SpringLayout.SOUTH, escapeLabel);
-		baseLayout.putConstraint(SpringLayout.EAST, continueButton, 0, SpringLayout.EAST, escapeLabel);
-		baseLayout.putConstraint(SpringLayout.NORTH, escapeLabel, 95, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, escapeLabel, 419, SpringLayout.WEST, this);
-		
 		if(currentMonster instanceof Slime)
 		{
 			escapeLabel.setText("Congrats you escaped the slime. It's about as dangerous as spoiled jello.");
@@ -53,8 +49,8 @@ public class DungeonEscape extends JPanel
 		{
 			escapeLabel.setText("You escaped.");
 		}
-		
 		rewardLabel = new JLabel("You get nothing!");
+		runningPic = new JLabel(new ImageIcon(getClass().getResource("images/running.jpeg")));
 		
 		setupPanel();
 		setupLayout();
@@ -66,15 +62,20 @@ public class DungeonEscape extends JPanel
 		this.setLayout(baseLayout);;
 		this.setPreferredSize(new Dimension(960, 540));
 		this.setBackground(Color.GRAY);
-		
-		
+		this.add(runningPic);
 		this.add(escapeLabel);
 		this.add(continueButton);
 	}
 	
 	private void setupLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.SOUTH, escapeLabel, -10, SpringLayout.NORTH, runningPic);
+		baseLayout.putConstraint(SpringLayout.NORTH, continueButton, 8, SpringLayout.SOUTH, runningPic);
+		baseLayout.putConstraint(SpringLayout.WEST, runningPic, 400, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, runningPic, -201, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, continueButton, -394, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, escapeLabel, 0, SpringLayout.EAST, continueButton);
+
 	}
 	
 	private void setupListeners()
@@ -84,7 +85,7 @@ public class DungeonEscape extends JPanel
 				{
 					public void actionPerformed(ActionEvent click)
 					{
-						
+						//return to world
 					}
 
 					

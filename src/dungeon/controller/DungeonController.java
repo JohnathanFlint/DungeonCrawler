@@ -11,7 +11,7 @@ public class DungeonController
 	private Player playerProfile;
 	private DungeonFrame appFrame;
 	public String monsterPicture = "images/Troll.jpg";
-	Monster currentMonster = goblin;	
+	Monster currentMonster = goblin;
 	
 	public DungeonController()
 	{
@@ -19,6 +19,8 @@ public class DungeonController
 		appFrame = new DungeonFrame(this);
 	}
 	
+	
+
 	public void start()
 	{
 		
@@ -75,8 +77,6 @@ public class DungeonController
 		}
 		
 		System.out.println(currentMonster.getMonsterCurrentHealth());
-		
-		monsterDeath();
 	}
 	
 	public boolean run() 
@@ -127,11 +127,7 @@ public class DungeonController
 	{
 		if(currentMonster.getMonsterCurrentHealth() <= 0)
 		{
-			if(currentMonster.getDropChance() >= currentMonster.getDropResist())
-				{
-					//drops item
-				}
-			playerProfile.setPlayerXP(playerProfile.getPlayerXP() + currentMonster.getMonsterXP());
+			
 			return true;		
 		}
 		else
@@ -153,7 +149,12 @@ public class DungeonController
 		else if(monsterDeath())
 		{
 			System.out.println("They dead");
-
+			if(currentMonster.getDropChance() >= currentMonster.getDropResist())
+			{
+				//drops item
+			}
+			playerProfile.setPlayerXP(playerProfile.getPlayerXP() + currentMonster.getMonsterXP());
+			playerProfile.levelUp();
 			appFrame.switchPanel("Victory");
 		}
 		else if(run())
@@ -185,6 +186,16 @@ public class DungeonController
 	public String getMonsterPicture()
 	{
 		return monsterPicture;
+	}
+	
+	public Player getPlayerProfile()
+	{
+		return playerProfile;
+	}
+
+	public void setPlayerProfile(Player playerProfile)
+	{
+		this.playerProfile = playerProfile;
 	}
 	
 	
