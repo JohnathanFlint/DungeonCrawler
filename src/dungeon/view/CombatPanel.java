@@ -46,7 +46,6 @@ public class CombatPanel extends JPanel
 		this.baseController = baseController;
 		this.player = player;
 		this.currentMonster = currentMonster;
-		baseController.startCombat(baseController.getCurrentMonster());
 		baseLayout = new SpringLayout();
 		fightButton = new JButton("Attack");		
 		runButton = new JButton("Run");		
@@ -157,8 +156,8 @@ public class CombatPanel extends JPanel
 				{
 					public void actionPerformed(ActionEvent click)
 					{
-//						baseController.run();
-						System.out.println(baseController.run());
+						baseController.run();
+						//System.out.println(baseController.run());
 						baseController.combatEnd();
 					}
 				});

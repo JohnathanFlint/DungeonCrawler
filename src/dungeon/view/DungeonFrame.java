@@ -17,6 +17,7 @@ public class DungeonFrame extends JFrame
 	{
 		super();
 		this.baseController = baseController;
+		baseController.startCombat(baseController.getCurrentMonster());
 		fightAppPanel = new CombatPanel(baseController, baseController.getPlayerProfile(), baseController.getCurrentMonster());
 		deathAppPanel = new DeathPanel(baseController);
 		winAppPanel = new VictoryPanel(baseController, baseController.getPlayerProfile(), baseController.getCurrentMonster());

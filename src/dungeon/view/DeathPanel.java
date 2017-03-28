@@ -24,9 +24,17 @@ public class DeathPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		deathPic = new JLabel(new ImageIcon(getClass().getResource("images/deadAdventurer.jpg")));
+		baseLayout.putConstraint(SpringLayout.NORTH, deathPic, 160, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, deathPic, -299, SpringLayout.EAST, this);
 		quitButton = new JButton("Quit?");
+		baseLayout.putConstraint(SpringLayout.NORTH, quitButton, 25, SpringLayout.SOUTH, deathPic);
 		deathLabel = new JLabel("You are dead. Congratulations!");
+		baseLayout.putConstraint(SpringLayout.WEST, quitButton, 0, SpringLayout.WEST, deathLabel);
+		baseLayout.putConstraint(SpringLayout.WEST, deathLabel, 0, SpringLayout.WEST, deathPic);
+		baseLayout.putConstraint(SpringLayout.SOUTH, deathLabel, -5, SpringLayout.NORTH, deathPic);
 		continueButton = new JButton("Continue?");
+		baseLayout.putConstraint(SpringLayout.NORTH, continueButton, 0, SpringLayout.NORTH, quitButton);
+		baseLayout.putConstraint(SpringLayout.EAST, continueButton, 0, SpringLayout.EAST, deathPic);
 		
 		setupPanel();
 		setupLayout();
@@ -46,15 +54,6 @@ public class DeathPanel extends JPanel
 	
 	private void setupLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.WEST, deathLabel, 119, SpringLayout.WEST, this);
-		
-		baseLayout.putConstraint(SpringLayout.NORTH, deathPic, 74, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, quitButton, 3, SpringLayout.SOUTH, deathPic);
-		baseLayout.putConstraint(SpringLayout.WEST, quitButton, 10, SpringLayout.WEST, deathPic);
-		baseLayout.putConstraint(SpringLayout.SOUTH, deathLabel, -28, SpringLayout.NORTH, deathPic);
-		baseLayout.putConstraint(SpringLayout.WEST, deathPic, 72, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, continueButton, 0, SpringLayout.NORTH, quitButton);
-		baseLayout.putConstraint(SpringLayout.EAST, continueButton, 0, SpringLayout.EAST, deathPic);
 	}
 	
 	private void setupListeners()

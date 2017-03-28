@@ -11,7 +11,7 @@ public class DungeonController
 	private Player playerProfile;
 	private DungeonFrame appFrame;
 	public String monsterPicture = "images/Troll.jpg";
-	Monster currentMonster = goblin;
+	Monster currentMonster = troll;
 	
 	public DungeonController()
 	{
@@ -32,23 +32,28 @@ public class DungeonController
 		
 		if(monster instanceof Troll)
 		{
+			System.out.println("Troll");
 			monsterPicture = "images/Troll.jpg";
 			currentMonster = troll;
 		}
 		
 		if(monster instanceof Goblin)
 		{
+			System.out.println("Goblin");
 			monsterPicture = "images/Goblin.jpg";
 			currentMonster = goblin;
 		}
 		
 		if(monster instanceof Slime)
 		{
+			System.out.println("Slime");
 			monsterPicture = "images/Slime.jpg";
 			currentMonster = slime;
 		}
 				
 		currentMonster.setPlayer(playerProfile);
+		System.out.println("End");
+		System.out.println(currentMonster);
 
 	}
 	
@@ -113,14 +118,14 @@ public class DungeonController
 
 	public void monsterAttack() 
 	{
-		System.out.println(playerProfile.getCurrentHealth());
+		//System.out.println(playerProfile.getCurrentHealth());
 		
 		if(monsterHitChance())
 		{
 			
 			playerProfile.setCurrentHealth(playerProfile.getCurrentHealth() - currentMonster.getMonsterStrength());
 		}
-		System.out.println(playerProfile.getCurrentHealth());
+		//System.out.println(playerProfile.getCurrentHealth());
 	}
 	
 	public boolean monsterDeath() 
@@ -143,30 +148,35 @@ public class DungeonController
 	{
 		if(playerProfile.playerDeath())
 		{
-			System.out.println("You dead");
+			//System.out.println("You dead");
 			appFrame.switchPanel("Death");
 		}
 		else if(monsterDeath())
 		{
-			System.out.println("They dead");
+			//System.out.println("They dead");
 			if(currentMonster.getDropChance() >= currentMonster.getDropResist())
 			{
 				//drops item
 			}
+			//System.out.println(currentMonster.getMonsterXP());
 			playerProfile.setPlayerXP(playerProfile.getPlayerXP() + currentMonster.getMonsterXP());
-			playerProfile.levelUp();
 			appFrame.switchPanel("Victory");
 		}
 		else if(run())
 		{
-			System.out.println("You coward");
+			//System.out.println("You coward");
 
 			appFrame.switchPanel("DungeonEscape");
 		}
 		else
 		{
-			System.out.println("Fail");
+			//System.out.println("Fail");
 		}
+	}
+	
+	public void levelPlayer()
+	{
+		playerProfile.levelUp();
 	}
 	
 	public Monster getCurrentMonster()

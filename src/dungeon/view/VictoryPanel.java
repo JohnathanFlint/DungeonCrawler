@@ -56,6 +56,9 @@ public class VictoryPanel extends JPanel
 		levelLabel.setVisible(false);
 		levelUpLabel.setVisible(false);
 		
+		System.out.println(player.getPlayerLevel());
+		System.out.println(player.getPlayerXP());
+		
 		if(player.getPlayerXP() >= (player.getPlayerLevel() * 10))
 		{
 			healthLabel.setVisible(true);
@@ -65,6 +68,7 @@ public class VictoryPanel extends JPanel
 			speedLabel.setVisible(true);
 			levelLabel.setVisible(true);
 			levelUpLabel.setVisible(true);
+			System.out.println("HI");
 		}
 		
 		setupPanel();
@@ -129,7 +133,7 @@ public class VictoryPanel extends JPanel
 				{
 					public void actionPerformed(ActionEvent click)
 					{
-						
+						baseController.levelPlayer();
 					}
 				});
 	}

@@ -29,6 +29,7 @@ public abstract class Monster
 		this.setMonsterSpeed(monsterSpeed);
 		this.monsterName = monsterName;
 		this.monsterPic = monsterPic;
+		this.monsterXP = monsterXP;
 	}
 	
 	public String getType()
