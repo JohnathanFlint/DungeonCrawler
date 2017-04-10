@@ -28,7 +28,7 @@ public class DungeonController
 	
 	public void startCombat(Monster monster)
 	{
-		monster =  new Goblin();
+		monster =  new Troll();
 		
 		if(monster instanceof Troll)
 		{

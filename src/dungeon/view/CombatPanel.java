@@ -52,6 +52,9 @@ public class CombatPanel extends JPanel
 		playerDamage = new JLabel("Your damage is " + Integer.toString(player.getPlayerStrength()));		
 		monsterDamage = new JLabel("The monster's damage is " + Integer.toString(currentMonster.getMonsterStrength()));
 		monsterPic = new JLabel(new ImageIcon(getClass().getResource(baseController.getMonsterPicture())));			
+		baseLayout.putConstraint(SpringLayout.NORTH, monsterDamage, 25, SpringLayout.SOUTH, monsterPic);
+		baseLayout.putConstraint(SpringLayout.WEST, monsterDamage, 0, SpringLayout.WEST, monsterPic);
+		baseLayout.putConstraint(SpringLayout.EAST, monsterDamage, 0, SpringLayout.EAST, monsterPic);
 		playerPic = new JLabel(new ImageIcon(getClass().getResource("images/redCube.jpg")));
 		playerHealth = new HealthBar(500, 200, player.getMaxHealth(), player.getCurrentHealth());
 		playerHealthRender = new JLabel(new ImageIcon(playerHealth.render()));
@@ -66,6 +69,9 @@ public class CombatPanel extends JPanel
 //		}
 		monsterHealth = new HealthBar(500, 200, currentMonster.getMonsterHealth(), currentMonster.getMonsterCurrentHealth());
 		monsterHealthRender = new JLabel(new ImageIcon(monsterHealth.render()));
+		baseLayout.putConstraint(SpringLayout.NORTH, monsterHealthRender, 7, SpringLayout.SOUTH, monsterPic);
+		baseLayout.putConstraint(SpringLayout.WEST, monsterHealthRender, 0, SpringLayout.WEST, monsterPic);
+		baseLayout.putConstraint(SpringLayout.EAST, monsterHealthRender, 0, SpringLayout.EAST, monsterPic);
 
 		
 		
@@ -104,8 +110,6 @@ public class CombatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, playerPic, -96, SpringLayout.WEST, fightButton);
 		baseLayout.putConstraint(SpringLayout.EAST, playerPic, -27, SpringLayout.WEST, fightButton);
 		baseLayout.putConstraint(SpringLayout.SOUTH, playerPic, -51, SpringLayout.SOUTH, this);
-		baseLayout.putConstraint(SpringLayout.NORTH, monsterDamage, 6, SpringLayout.SOUTH, monsterPic);
-		baseLayout.putConstraint(SpringLayout.EAST, monsterDamage, -10, SpringLayout.EAST, monsterPic);
 		baseLayout.putConstraint(SpringLayout.NORTH, runButton, 0, SpringLayout.NORTH, fightButton);
 		baseLayout.putConstraint(SpringLayout.WEST, runButton, 40, SpringLayout.EAST, fightButton);
 		baseLayout.putConstraint(SpringLayout.EAST, fightButton, -769, SpringLayout.EAST, this);
