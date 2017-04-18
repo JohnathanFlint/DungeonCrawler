@@ -69,9 +69,6 @@ public class CombatPanel extends JPanel
 //		}
 		monsterHealth = new HealthBar(500, 200, currentMonster.getMonsterHealth(), currentMonster.getMonsterCurrentHealth());
 		monsterHealthRender = new JLabel(new ImageIcon(monsterHealth.render()));
-		baseLayout.putConstraint(SpringLayout.NORTH, monsterHealthRender, 7, SpringLayout.SOUTH, monsterPic);
-		baseLayout.putConstraint(SpringLayout.WEST, monsterHealthRender, 0, SpringLayout.WEST, monsterPic);
-		baseLayout.putConstraint(SpringLayout.EAST, monsterHealthRender, 0, SpringLayout.EAST, monsterPic);
 
 		
 		
@@ -115,6 +112,9 @@ public class CombatPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, fightButton, -769, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, playerHealthRender, 6, SpringLayout.SOUTH, playerPic);
 		baseLayout.putConstraint(SpringLayout.WEST, playerHealthRender, 0, SpringLayout.WEST, playerPic);
+		baseLayout.putConstraint(SpringLayout.NORTH, monsterHealthRender, 7, SpringLayout.SOUTH, monsterPic);
+		baseLayout.putConstraint(SpringLayout.WEST, monsterHealthRender, 0, SpringLayout.WEST, monsterPic);
+		baseLayout.putConstraint(SpringLayout.EAST, monsterHealthRender, 0, SpringLayout.EAST, monsterPic);
 	}
 	
 	private void setupListeners()
