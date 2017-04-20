@@ -146,6 +146,7 @@ public class DungeonController
 
 	public void combatEnd()
 	{
+		int equipmentChance = (int) (Math.random() * 100 + 1);
 		if(playerProfile.playerDeath())
 		{
 			//System.out.println("You dead");
@@ -156,7 +157,18 @@ public class DungeonController
 			//System.out.println("They dead");
 			if(currentMonster.getDropChance() >= currentMonster.getDropResist())
 			{
-				//drops item
+				if(equipmentChance >= 75)
+				{
+					
+				}
+				else if(equipmentChance < 75 && equipmentChance >= 37)
+				{
+					//drops attack potion
+				}
+				else
+				{
+					//drops health potion
+				}
 			}
 			//System.out.println(currentMonster.getMonsterXP());
 			playerProfile.setPlayerXP(playerProfile.getPlayerXP() + currentMonster.getMonsterXP());
